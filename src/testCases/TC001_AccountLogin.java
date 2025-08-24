@@ -11,7 +11,7 @@ public class TC001_AccountLogin extends baseClass {
 	HomePage hp;
 	LoginPage lp;
 
-	@Test(groups = { "regression", "master" })
+	@Test(groups = { "regression", "master" }, priority = 0)
 	public void verifyLogin() {
 		hp = new HomePage(driver);
 
