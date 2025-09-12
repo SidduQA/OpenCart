@@ -5,14 +5,16 @@ import org.testng.annotations.Test;
 
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import pageObjects.MyAccountPage;
 import testBase.baseClass;
 
 public class TC001_AccountLogin extends baseClass {
 	HomePage hp;
 	LoginPage lp;
+	MyAccountPage mp;
 
 	@Test(groups = { "regression", "master" }, priority = 0)
-	public void verifyLogin() {
+	public void verifyLogin() throws InterruptedException {
 		hp = new HomePage(driver);
 
 		hp.clickMyAccount();
@@ -24,8 +26,10 @@ public class TC001_AccountLogin extends baseClass {
 		lp.userPass(p.getProperty("password"));
 		lp.login();
 
-		String cnflgn = lp.loginMsge();
-		Assert.assertEquals(cnflgn, "My Account");
+		mp = new MyAccountPage(driver);
+
+		Assert.assertTrue(mp.TargetPage());
+
 	}
 
 }

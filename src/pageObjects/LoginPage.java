@@ -22,6 +22,9 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath = "//h2[normalize-space()='My Account']")
 	WebElement cnfMsge;
 
+	@FindBy(xpath = "//a[@class='list-group-item'][normalize-space()='Logout']")
+	WebElement logout;
+
 	public void userEmail(String mail) {
 		email.sendKeys(mail);
 	}
@@ -32,14 +35,6 @@ public class LoginPage extends BasePage {
 
 	public void login() {
 		submit.click();
-	}
-
-	public String loginMsge() {
-		try {
-			return cnfMsge.getText();
-		} catch (Exception e) {
-			return (e.getMessage());
-		}
 	}
 
 }
